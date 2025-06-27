@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sponsoring – Maak het Verschil!{% endblock %}
+
+{% block content %}
+  <style>
+    /* Section styling consistent with other pages */
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-beige);
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .sponsoring-image {
+      display: block;
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 1.2rem auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      object-fit: cover;
+      image-rendering: auto;
+    }
+    .intro h1 {
+      font-size: 2rem;
+      color: var(--color-red);
+      margin-bottom: 0.5rem;
+    }
+    .intro p, .section ul, .section li {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .section ul {
+      list-style: disc inside;
+      margin: 1em 0 1em 1.2em;
+      color: #444;
+    }
+    .donation-info {
+      background: #fff8e1;
+      border: 1px solid #ffe0b2;
+      border-radius: 8px;
+      padding: 1.2em 1em;
+      margin: 0 0 1.5em 0;
+      box-shadow: 0 1px 6px rgba(255,193,7,0.08);
+    }
+    .donation-info h2 {
+      color: #a62828;
+      font-size: 1.3rem;
+      margin-bottom: 0.5em;
+    }
+    .donation-info strong {
+      font-size: 1.1em;
+      color: #d32f2f;
+    }
+    .donation-info em {
+      color: #a62828;
+      font-size: 0.98em;
+    }
+    .section h2 {
+      font-size: 1.3rem;
+      color: var(--color-red);
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    a {
+      color: var(--color-red);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    a:hover {
+      color: #a62828;
+      text-decoration: underline solid;
+    }
+    @media (max-width: 600px) {
+      .section {
+        padding: 1em;
+      }
+      .donation-info {
+        padding: 1em 0.5em;
+      }
+    }
+    .donation-flex {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 1.5em;
+      flex-wrap: wrap;
+    }
+    .donation-flex .sponsoring-image {
+      max-width: 220px;
+      min-width: 120px;
+      margin: 0;
+    }
+    @media (max-width: 800px) {
+      .donation-flex {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .donation-flex .sponsoring-image {
+        max-width: 100%;
+        margin: 1.2rem auto 0 auto;
+      }
+    }
+    .sponsoring-image.in-box {
+      display: block;
+      margin: 1.2em auto 0 auto;
+      max-width: 180px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(255,193,7,0.08);
+    }
+    .sponsoring-flex {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .sponsoring-main-col {
+      flex: 2 1 340px;
+      min-width: 0;
+    }
+    .sponsoring-side-col {
+      flex: 1 1 260px;
+      min-width: 220px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    @media (max-width: 900px) {
+      .sponsoring-flex {
+        flex-direction: column;
+      }
+      .sponsoring-side-col {
+        max-width: 100%;
+        margin: 2rem 0 0 0;
+      }
+    }
+  </style>
+  <section class="sponsoring-flex section">
+    <div class="sponsoring-main-col">
+      <h1>Sponsoring</h1>
+      <p><strong>Een onbetaalbare ervaring – mogelijk gemaakt door jou.</strong></p>
+      <p>
+        Dankzij de steun van sponsoren en donateurs kunnen wij gezinnen met een zorgintensief kind een vakantie bieden die zij zich anders vaak niet kunnen veroorloven. Uw bijdrage maakt een wereld van verschil en zorgt voor onvergetelijke herinneringen.
+      </p>
+      <ul>
+        <li>Aankoop van hulpmiddelen zoals tilliften en hoog-laagbedden</li>
+        <li>Financiering van aangepaste animatiematerialen</li>
+        <li>Verblijf en onkosten van onze toegewijde vrijwilligers</li>
+        <li>Plaatsen beschikbaar stellen voor gezinnen zonder zorgbudget</li>
+      </ul>
+      <p>
+        <strong>Uw steun is onmisbaar!</strong> Elke donatie, groot of klein, draagt direct bij aan het geluk en welzijn van deze gezinnen.
+      </p>
+      <h2>Zakelijke of structurele sponsoring?</h2>
+      <p>
+        Wilt u als bedrijf of met een structurele bijdrage sponsoren? Neem gerust contact met ons op – wij maken graag een voorstel op maat.<br>
+        <strong>📧 <a href="mailto:sponsoring@vriendenvanpuylagorge.eu">sponsoring@vriendenvanpuylagorge.eu</a></strong>
+      </p>
+      <p style="margin-top:2em;font-size:1.1em;font-weight:bold;">
+        Samen maken we het verschil. Steun ons en geef gezinnen een onbezorgde vakantie!
+      </p>
+    </div>
+    <div class="sponsoring-side-col">
+      <div class="donation-info">
+        <h2>Doneren?</h2>
+        <p>
+          Maak uw gift over op:<br>
+          <strong>NL78&nbsp;RABO&nbsp;0146&nbsp;0501&nbsp;93</strong><br>
+          t.n.v. Stichting Vrienden van Domaine de Puylagorge
+        </p>
+        <p>
+          <em>De stichting heeft een ANBI‑status – giften zijn aftrekbaar.</em>
+        </p>
+        <img src="{% static 'images/sponsoring_picture.jpg' %}" alt="Sponsoring" class="sponsoring-image in-box" loading="lazy">
+      </div>
+    </div>
+  </section>
+{% endblock %} 

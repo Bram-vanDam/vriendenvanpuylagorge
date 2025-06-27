@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% debug %}
+{% block title %}Bestuur{% endblock %}
+
+{% block content %}
+  <style>
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-beige);
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .section-divider {
+      width: 100%;
+      border: none;
+      border-top: 2px dashed #a62828;
+      margin: 2.5rem 0 2rem 0;
+      opacity: 0.4;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      color: var(--color-red);
+      margin-bottom: 0.75rem;
+    }
+    .section h3 {
+      font-size: 1.15rem;
+      color: #a62828;
+      margin-top: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .section ul, .section ol {
+      margin-left: 1.2em;
+      color: #444;
+    }
+    .section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      background: #fff;
+    }
+    .section th, .section td {
+      border: 1px solid #e0bdbd;
+      padding: 0.5em 0.7em;
+      text-align: left;
+      font-size: 0.98em;
+    }
+    .section th {
+      background: #f5f5dc;
+      color: #a62828;
+      font-weight: 700;
+    }
+    .section td {
+      color: #333;
+    }
+    .section .breakable {
+      white-space: normal;
+      overflow-wrap: break-word;
+      letter-spacing: 0.01em;
+    }
+    .section .note {
+      color: #a62828;
+      font-size: 0.97em;
+      margin-top: 0.5em;
+      font-style: italic;
+    }
+    .handwritten {
+      font-family: 'Pacifico', 'Dancing Script', cursive, sans-serif;
+      font-size: 1.25em;
+      color: #a62828;
+      letter-spacing: 0.03em;
+      padding-top: 0.3em;
+      display: inline-block;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Dancing+Script&display=swap" rel="stylesheet">
+
+  <section class="section">
+    <h2>Missie en doelstelling</h2>
+    <p>De stichting heeft geen winstoogmerk en streeft het algemeen nut na door gezinnen met een lichamelijke en/of verstandelijke beperking een onbezorgde, toegankelijke vakantie te bieden op Camping Parc de la Brenne (Domaine de Puylagorge). Dit realiseren we door:</p>
+    <ul>
+      <li>Het toegankelijk maken en houden van terrein, gebouwen en speelfaciliteiten.</li>
+      <li>Het creëren van aangepaste voorzieningen, zorg, hulpmiddelen en animatie.</li>
+      <li>Het werven van middelen en vrijwilligers om bovenstaande betaalbaar te houden.</li>
+    </ul>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Projecten en investeringen 2021‑2026</h2>
+    <table>
+      <thead>
+        <tr><th>Jaar</th><th>Project / mijlpaal</th><th>Status</th><th>Uitgave</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2021</td><td>Snoezeltuin (incl. rolstoelschommel)</td><td>Gereed</td><td>€ 12 000</td></tr>
+        <tr><td>2021</td><td>Springkussen & tillift zwembad</td><td>Gereed</td><td>€ 4 100</td></tr>
+        <tr><td>2022</td><td>Nieuwe website & vrijwilligersportaal</td><td>Live</td><td>€ 3 500</td></tr>
+        <tr><td>2022</td><td>20 tenten + luchtbedden t.b.v. vrijwilligers</td><td>Gereed</td><td>€ 5 000</td></tr>
+        <tr><td>2023</td><td>2 plafondliften in sanitair</td><td>Gereed</td><td>€ 7 200</td></tr>
+        <tr><td>2023</td><td>Social‑media coördinator (0,1 fte)</td><td>Lopend</td><td>€ 6 000 p/j</td></tr>
+        <tr><td>2023</td><td>Reiskostenvergoeding vrijwilligers → € 110</td><td>Ingevoerd</td><td>€ 10 000 p/j</td></tr>
+        <tr><td>2023‑2025</td><td>Bouw animatie‑ & vrijwilligersgebouw</td><td>Oplevering Q4 2025</td><td>€ 30 000</td></tr>
+        <tr><td>2024</td><td>Vast animatie‑coördinatieteam</td><td>Lopend</td><td>€ 12 000 p/j</td></tr>
+        <tr><td>2024</td><td>3 sensorische snoezelruimtes</td><td>Gereed</td><td>€ 18 000</td></tr>
+        <tr><td>2025</td><td>Extra nestschommel + uitbreiding snoezeltuin</td><td>Planning</td><td>€ 3 000</td></tr>
+        <tr><td>2025</td><td>Hangar (deels overkapte animatie & opslag)</td><td>Planning</td><td>€ 17 000</td></tr>
+        <tr><td>2026</td><td>Nieuwe zwembadlift + hekwerk animatiezone</td><td>Begroot</td><td>€ 9 500</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Activiteiten</h2>
+    <ul>
+      <li>Jaarlijks 6‑8 inclusieve vakantieweken voor ±100 gezinnen.</li>
+      <li>Aangepaste animatie (structuurgroepen, BOB‑methode) door 80‑100 vrijwillige begeleiders.</li>
+      <li>Zorgondersteuning in samenwerking met gekwalificeerde zorgprofessionals.</li>
+      <li>Scholingsdagen, VOG‑screening en intensieve begeleiding voor alle vrijwilligers.</li>
+      <li>Partnerschap & kennisdeling met o.a. Stichting Wigwam.</li>
+    </ul>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Financieel overzicht 2021‑2023</h2>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>2021</th>
+          <th>2022</th>
+          <th>2023</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>Baten</th><td>€ 100 219</td><td>€ 90 017</td><td>€ 121 720</td></tr>
+        <tr><th>Lasten</th><td>€ 83 745</td><td>€ 90 017</td><td>€ 151 245</td></tr>
+        <tr><th>Resultaat</th><td>+€ 16 474</td><td>€ 0</td><td>–€ 29 525</td></tr>
+        <tr><th>Eigen vermogen 31‑12</th><td>€ 68 580</td><td>€ 68 580</td><td>€ 33 270</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Toelichting: het negatieve resultaat 2023 is een bewuste investering in duurzame voorzieningen (plafondliften, gebouw en vrijwilligersbeleid).</div>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Vermogensbeheer</h2>
+    <ul>
+      <li>Continuïteitsreserve ≥ 0,75× jaarlasten.</li>
+      <li>Geen beleggingen; liquide middelen staan ter vrije beschikking.</li>
+      <li>Kwartaalrapportages en projectbudgetten.</li>
+    </ul>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Bestuur en organisatie</h2>
+    <table>
+      <thead>
+        <tr><th>Functie</th><th>Naam</th><th>Aftreden</th><th>Beloning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Voorzitter</td><td>Mariska Engel</td><td>01‑04‑2027</td><td>€ 0</td></tr>
+        <tr><td>Penningmeester</td><td>Mathieu Weesie</td><td>01‑04‑2026</td><td>€ 0</td></tr>
+        <tr><td>Secretaris & Coördinator Animatie</td><td>Diewertje van Dam</td><td>01‑04‑2026</td><td>€ 0</td></tr>
+        <tr><td>Bestuurslid sponsoring</td><td>vacant – werving actief</td><td>–</td><td>€ 0</td></tr>
+        <tr><td>Bestuurslid vrijwilligers</td><td>vacant – werving actief</td><td>–</td><td>€ 0</td></tr>
+      </tbody>
+    </table>
+    <div class="note">Het bestuur werkt onbezoldigd en ontvangt uitsluitend een reële onkostenvergoeding.</div>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Beloningsbeleid</h2>
+    <ul>
+      <li>Bestuurders: geen salaris of vacatiegeld.</li>
+      <li>Vergoeding Coordinatieteam conform afspraken.</li>
+      <li>Vrijwilligers: kost & inwoning + reiskostenvergoeding (€ 110).</li>
+    </ul>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Publicatieplicht</h2>
+    <ul>
+      <li>Beleidsplan, jaarrekeningen en statutaire info staan op de website.</li>
+      <li>Jaarrekening uiterlijk 1 juli na afloop boekjaar online.</li>
+    </ul>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Risicoanalyse</h2>
+    <table>
+      <thead>
+        <tr><th>Risico</th><th>Impact</th><th>Maatregel</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vrijwilligerstekort</td><td>Hoog</td><td>Actieve werving, hogere vergoeding, partnerschap Wigwam</td></tr>
+        <tr><td>Onvoorziene uitgaven</td><td>Middel</td><td>Reserves, onderhoudscontracten</td></tr>
+        <tr><td>Wijzigingen zorg/PGB</td><td>Hoog</td><td>Juridische monitoring, aanpassing werkwijze</td></tr>
+        <tr><td>Bestuursverloop</td><td>Middel</td><td>Werving, overdrachtsdossiers</td></tr>
+        <tr><td>Verlies ANBI of subsidie</td><td>Middel</td><td>Continue monitoring fiscale/beleidswijzigingen</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Slotverklaring</h2>
+    <p>Het bestuur verklaart dat dit beleids‑ en publicatieplan voldoet aan de eisen voor ANBI‑instellingen (Wet IB 2001).</p>
+    <p>Heesch, 01/01/2025</p>
+    <table>
+      <thead>
+        <tr><th>Voorzitter</th><th>Penningmeester</th><th>Secretaris</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="handwritten">Mariska Engel</span></td>
+          <td><span class="handwritten">Mathieu Weesie</span></td>
+          <td><span class="handwritten">Diewertje van Dam</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note">Bijlagen op verzoek: jaarrekeningen 2021‑2023, statuten 2018, fotoverslag investeringen, vrijwilligers‑ en veiligheidsprotocollen.</div>
+  </section>
+  <hr class="section-divider" />
+
+  <section class="section">
+    <h2>Documenten</h2>
+    <script src="{% static 'js/scrolling_component.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/scrolling_component_styling.css' %}">
+    <div class="scroll-container" id="scrollContainer"></div>
+    <script>
+        let dictionary={"category":"stichting","year":"2025"};
+        const params = { category: 'stichting', year: '2025' };
+        initScrollingComponent({
+            containerId: 'scrollContainer',
+            initialDict: params,
+            ajaxUrl: "surveylinks"
+        });
+    </script>
+  </section>
+{% endblock %}

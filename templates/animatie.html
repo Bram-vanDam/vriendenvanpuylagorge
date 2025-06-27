@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Animatie op de Camping – Samen Plezier Maken!{% endblock %}
+
+{% block content %}
+  <style>
+    .main-title {
+      font-size: 2.2rem;
+      color: var(--color-red);
+      margin-bottom: 0.7rem;
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #a62828;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .animatie-img {
+      display: block;
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+      margin: 1.2rem auto 1.2rem auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      object-fit: cover;
+    }
+    @media (max-width: 600px) {
+      .section { padding: 1em; }
+      .animatie-img { max-width: 100%; }
+    }
+    .scroll-links {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.2rem;
+      padding: 0.7em 0.5em 0.7em 0.5em;
+      background: #fff6f6;
+      border-radius: 8px;
+      margin: 0 auto 1.2em auto;
+      max-width: 700px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      scrollbar-width: thin;
+    }
+    .scroll-links a {
+      color: #a62828;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.3em 1em;
+      border-radius: 5px;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .scroll-links a:hover, .scroll-links a:focus {
+      background: #ffeaea;
+      color: var(--color-red);
+    }
+  </style>
+
+  <nav class="scroll-links" aria-label="Secties op deze pagina">
+    <a href="#animatie">Animatie op de Camping</a>
+    <a href="#programma">Hoe werkt het animatieprogramma?</a>
+    <a href="#dagindeling">Voorbeeld dagindeling</a>
+    <a href="#vrijwilliger">Jouw rol als vrijwilliger</a>
+    <a href="#contact">Contact & Informatie</a>
+  </nav>
+
+  <section class="section" id="animatie">
+    <h1 class="main-title">Animatie op de Camping</h1>
+    <p class="subtitle">Samen genieten, spelen en groeien – voor álle kinderen!</p>
+    <img src="{% static 'images/animatie_vrijwilligers.jpg' %}" alt="Animatie vrijwilligers aan het werk" class="animatie-img" loading="lazy">
+    <p>
+      Op <strong>Camping Parc de la Brenne</strong> draait alles om samen plezier maken, toegankelijkheid en het échte vakantiegevoel voor gezinnen met een zorgintensief kind. De animatie wordt volledig verzorgd door een enthousiast team van vrijwilligers. Jij maakt het verschil!
+    </p>
+    <br>
+  </section>
+
+  <section class="section" id="programma">
+    <h2>Hoe werkt het animatieprogramma?</h2>
+    <p>
+      Tijdens de zomervakantie is er dagelijks een gevarieerd animatieprogramma voor álle kinderen – met én zonder beperking.
+      Denk aan knutselen, sport, muziek, theater, speurtochten, waterpret en nog veel meer.
+      Alles is aangepast aan de mogelijkheden van de kinderen. Er zijn altijd voldoende begeleiders, zodat ieder kind persoonlijke aandacht krijgt.
+      Ouders kunnen zo even ontspannen, terwijl hun kinderen veilig en met plezier meedoen.
+    </p>
+    <br>
+  </section>
+
+  <section class="section" id="dagindeling">
+    <h2>Voorbeeld dagindeling</h2>
+    <ul style="margin-bottom: 1.5em;">
+      <li><strong>09:30</strong> – Gezamenlijk ontbijt en dagstart</li>
+      <li><strong>10:00</strong> – Ochtendactiviteit (bijv. knutselen, sport, speurtocht)</li>
+      <li><strong>12:00</strong> – Pauze & vrije tijd (zwemmen, snoezelen, relaxen)</li>
+      <li><strong>14:00</strong> – Middagactiviteit (theater, muziek, zeskamp, natuurspel)</li>
+      <li><strong>16:00</strong> – Afsluiting, tijd voor ouders en kinderen samen</li>
+      <li><strong>Avond</strong> – Kampvuur, disco, Bonteavond (elke avond anders)</li>
+    </ul>
+    <br>
+    <p>
+      De activiteiten zijn altijd afgestemd op de groep en het weer.
+      Iedereen doet mee op zijn of haar eigen manier!
+    </p>
+    <br>
+  </section>
+
+  <section class="section" id="vrijwilliger">
+    <h2>Jouw rol als vrijwilliger</h2>
+    <p>
+      Als vrijwilliger begeleid je de kinderen, bedenk je samen nieuwe activiteiten en zorg je voor een warme, veilige sfeer.
+      Je hoeft geen ervaring te hebben in de zorg of animatie – enthousiasme, betrokkenheid en een open houding zijn het belangrijkst.
+      Iedereen brengt zijn eigen talenten mee: de een is een creatieve knutselaar, de ander een sportieve spelbegeleider, weer een ander zorgt voor muziek of theater.
+      Samen maken we het programma tot een feest voor iedereen!
+    </p>
+    <br>
+    <p>
+      Wil jij bijdragen aan een vakantie vol plezier, vriendschap en groei?
+      Sluit je aan bij ons team op Camping Parc de la Brenne en beleef een zomer die je nooit vergeet!
+    </p>
+    <br>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact &amp; Informatie</h2>
+    <p>
+      Meer weten of vrijwilliger worden?
+      Stuur een e-mail naar <a href="mailto:info@vriendenvanpuylagorge.nl">info@vriendenvanpuylagorge.nl</a>
+      of bel ons via +31 6 1234 5678.
+    </p>
+    <br>
+  </section>
+{% endblock %}

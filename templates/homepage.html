@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% debug %}
+{% block title %}Vrienden van Puylagorge{% endblock %}
+
+{% block content %}
+  <style>
+    /* Section spacing */
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--color-white);
+      border: 1px solid var(--color-beige);
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    /* Intro */
+    .intro h1 {
+      font-size: 2rem;
+      color: var(--color-red);
+      margin-bottom: 0.5rem;
+    }
+    .intro p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #333;
+    }
+    /* Programma */
+    .programma h2 {
+      font-size: 1.5rem;
+      color: var(--color-red);
+      margin-bottom: 0.75rem;
+    }
+    .programma ul {
+      list-style: disc inside;
+      color: #444;
+    }
+    .programma li {
+      margin-bottom: 0.5rem;
+    }
+    /* Contact */
+    .contact h2 {
+      font-size: 1.5rem;
+      color: var(--color-red);
+      margin-bottom: 0.75rem;
+    }
+    .contact p {
+      color: #333;
+      font-size: 1rem;
+    }
+    .contact a {
+      color: var(--color-red);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+    .contact a:hover {
+      color: darken(var(--color-red), 10%);
+    }
+  </style>
+
+  <section class="intro section">
+    <h1>Welkom bij de Stichting Vrienden van Puylagorge</h1>
+    <p>
+      Wij zetten ons in voor onvergetelijke animatieactiviteiten voor alle kinderen,
+      met aandacht voor toegankelijkheid en inclusie op Camping Parc de la Brenne.
+    </p>
+    <p>
+      Ontdek onze programma’s, leer onze vrijwilligers kennen en plan je volgende
+      bezoek vol plezier en samenzijn!
+    </p>
+  </section>
+
+  <section class="programma section">
+    <h2>Wat wij doen</h2>
+    <ul>
+      <li>Dagelijkse animaties voor kinderen met en zonder beperking</li>
+      <li>Speciaal aangepaste spelletjes en sportevenementen</li>
+      <li>Workshops, optredens en creatieve sessies</li>
+      <li>Vrijwilligers- en ouderbetrokkenheid voor een veilige omgeving</li>
+    </ul>
+  </section>
+
+  <section class="contact section">
+    <h2>Contact &amp; Lid worden</h2>
+
+    <p>
+      Meer weten of lid worden? Stuur een e-mail naar
+      <a href="mailto:info@vriendenvanpuylagorge.nl">info@vriendenvanpuylagorge.nl</a>
+      of bel ons via +31 6 1234 5678.
+    </p>
+    <h2>Scrolling Hyperlinks</h2>
+    <script src="{% static 'js/scrolling_component.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/scrolling_component_styling.css' %}">
+    <div class="scroll-container" id="scrollContainer"></div>
+    <script>
+       // Log the URL to check if it's correct
+       
+        let dictionary={"category":"vrijwilligers","year":"2025"};
+        const params = { category: 'vrijwilligers', year: '2025' };
+        initScrollingComponent({
+            containerId: 'scrollContainer',
+            initialDict: params,
+            ajaxUrl: "surveylinks"
+        });
+    </script>
+    <!-- Call the custom tag and pass the dictionary directly -->
+  
+  </section>
+{% endblock %}

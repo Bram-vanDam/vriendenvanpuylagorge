@@ -1,0 +1,69 @@
+/* scrolling_component.css */
+
+/* Container: column flex + vertical snap */
+.scroll-container {
+    display: flex;
+    flex-direction: column;         /* stack items vertically */
+    gap: 1rem;                      /* space between cards */
+    overflow-y: auto;               /* vertical scroll */
+    scroll-snap-type: y mandatory;  /* snap on y-axis */
+    height: 400px;                  /* adjust as needed */
+    padding: 1rem;
+    margin: 2rem 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Style the scrollbar (Webkit) */
+  .scroll-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 4px;
+  }
+  .scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Style the scrollbar (Firefox) */
+  .scroll-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.2) transparent;
+  }
+  
+  /* Each link as a vertical “card” */
+  .scroll-container a {
+    flex: 0 0 auto;                 /* don’t stretch */
+    scroll-snap-align: start;       /* snap point at top of each card */
+    display: block;
+    width: 100%;                    /* full-width cards */
+    min-height: 60px;               /* ensure tappable size */
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  
+  /* Bold, red “primary” links */
+  .scroll-container a.primary {
+    color: #C0392B;   /* deep red */
+    font-weight: 700; /* extra bold */
+  }
+  
+  /* Hover/Focus state */
+  .scroll-container a:hover,
+  .scroll-container a:focus {
+    transform: translateX(5px);     /* slight right-shift for feedback */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+  
+  /* Active / pressed state */
+  .scroll-container a:active {
+    transform: translateX(2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  

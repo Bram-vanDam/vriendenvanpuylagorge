@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="{% static 'favicon.ico' %}">
+<!-- jQuery CDN for AJAX -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <meta charset="UTF-8">
+  <title>{% block title %}My Site{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+
+  :root {
+    --color-bg:     #f5f5dc;
+    --color-accent: #d32f2f;
+    --color-base:   #ffffff;
+    --max-width:    1200px;
+
+    --bg-w:      1940;
+    --bg-h:      360;
+    --bg-ratio:  calc((var(--bg-h)/var(--bg-w))*100%);
+    --bg-opacity: 0.7;  /* ← tweak between 0.1 and 0.6 */
+  }
+
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0 }
+  body {
+    min-height:100vh;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+    background:var(--color-bg);
+    color:var(--color-accent);
+    line-height:1.5;
+  }
+
+  .container {
+    width:90%;
+    max-width:var(--max-width);
+    margin:0 auto;
+  }
+
+  header {
+    position:relative;
+    width:100vw;
+    padding-top:var(--bg-ratio);
+    border-bottom:1px solid var(--color-accent);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    /* remove any `background-image` here */
+    background:none;
+  }
+  /* the semi-transparent background image */
+  header::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background: url("{% static 'images/background.png' %}") center/cover no-repeat;
+    opacity: var(--bg-opacity);
+    z-index: -1;
+  }
+
+  .logo img {
+    height:100px;
+    transition:height .3s;
+  }
+
+  nav {
+    margin-top:1rem;
+    display:flex;
+    gap:1.5rem;
+  }
+  nav a {
+    position:relative;
+    padding:.25rem 0;
+    font-weight:500;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    transition:color .2s;
+  }
+  nav a::after {
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:2px;
+    background:var(--color-accent);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .2s;
+  }
+  nav a:hover::after {
+    transform:scaleX(1);
+  }
+
+  /* … rest of your styles … */
+
+  @media(max-width:768px){
+    .logo img { height:50px }
+    nav { flex-wrap:wrap; justify-content:center; gap:1rem }
+  }
+
+  .site-footer {
+    background: var(--color-base);
+    color: var(--color-accent);
+    border-top: 1px solid var(--color-accent);
+    margin-top: 3rem;
+    font-size: clamp(0.97rem, 2vw, 1.08rem);
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
+    z-index: 10;
+    padding: 0;
+  }
+  .site-footer .footer-content {
+    max-width: min(var(--max-width), 98vw);
+    margin: 0 auto;
+    padding: 2.2rem 1.2rem 1.2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    box-sizing: border-box;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+    gap: 1.2rem 3.5rem;
+    border-bottom: 1px solid #e0bdbd;
+    padding-bottom: 1.2rem;
+    box-sizing: border-box;
+  }
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    font-size: 1em;
+    min-width: 320px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+    box-sizing: border-box;
+    padding: 0 1.2em;
+    background: none;
+  }
+  .footer-section-title {
+    font-weight: 700;
+    font-size: 1.09em;
+    margin-bottom: 0.3em;
+    color: #a62828;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    opacity: 0.85;
+    text-align: center;
+  }
+  .footer-col dl {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(110px, max-content) 1fr;
+    row-gap: 0.2em;
+    column-gap: 0.7em;
+    align-items: baseline;
+  }
+  .footer-col dt {
+    font-weight: 600;
+    color: #a62828;
+    margin: 0;
+    font-size: 0.98em;
+    text-align: left;
+    white-space: nowrap;
+    justify-self: start;
+  }
+  .footer-col dd {
+    margin: 0 0 0.2em 0;
+    font-size: 0.98em;
+    text-align: left;
+    word-break: break-word;
+    justify-self: start;
+  }
+  .footer-col a {
+    color: var(--color-accent);
+    text-decoration: underline dotted;
+    transition: color 0.2s;
+    word-break: break-all;
+  }
+  .footer-col a:hover {
+    color: #a62828;
+    text-decoration: underline solid;
+  }
+  .footer-col .breakable {
+    white-space: normal;
+    overflow-wrap: break-word;
+    letter-spacing: 0.01em;
+  }
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.93em;
+    color: #b97c7c;
+    margin-top: 1.2em;
+    opacity: 0.85;
+    word-break: normal;
+  }
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 1.2rem 0;
+    }
+    .footer-col {
+      align-items: center;
+      text-align: center;
+      max-width: 100%;
+      padding: 0;
+    }
+    .footer-col dl {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+    .footer-col dt {
+      text-align: left;
+      margin-bottom: 0.1em;
+    }
+    .footer-col dd {
+      margin-bottom: 0.5em;
+    }
+  }
+  @media (max-width: 600px) {
+    .site-footer .footer-content {
+      padding: 1.2rem 0.2rem 0.7rem 0.2rem;
+      font-size: 0.95em;
+    }
+    .footer-section-title {
+      font-size: 1em;
+    }
+    .footer-col {
+      font-size: 0.96em;
+      padding: 0;
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="logo" href="/">
+        <img src="{% static '/favicon.ico' %}" alt="Site Logo">
+      </a>
+      <nav>
+        <a href="{% url 'animatie' %}">Animatie</a>
+        <a href="{% url 'vrijwilligers' %}">Word Vrijwilliger</a>
+        <a href="{% url 'sponsoring' %}">Sponsoring</a>
+        <a href="{% url 'stichting' %}">Bestuur</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-section-title">Organisatie</div>
+          <dl>
+            <dt>Statutaire naam</dt>
+            <dd class="breakable">Stichting Vrienden van Domaine de Puylagorge</dd>
+            <dt>RSIN</dt>
+            <dd>850676709</dd>
+            <dt>KvK‑nummer</dt>
+            <dd>50676709</dd>
+            <dt>AGB‑code</dt>
+            <dd>41784122</dd>
+            <dt>Bank</dt>
+            <dd class="breakable">NL78 RABO 0146 0501 93 <br> t.n.v. St. Vrienden v. Domaine de Puylagorge</dd>
+          </dl>
+        </div>
+        <div class="footer-col">
+          <div class="footer-section-title">Contact</div>
+          <dl>
+            <dt>Correspondentieadres</dt>
+            <dd>Burgemeester van Hulstlaan 22, 5384 LS Heesch, Nederland</dd>
+            <dt>E‑mail algemeen</dt>
+            <dd><a href="mailto:administratie@vriendenvanpuylagorge.eu">administratie@vriendenvanpuylagorge.eu</a></dd>
+            <dt>E‑mail bestuur</dt>
+            <dd><a href="mailto:secretariaat@vriendenvanpuylagorge.eu">secretariaat@vriendenvanpuylagorge.eu</a></dd>
+            <dt>Telefoon camping</dt>
+            <dd>+33 9 60 44 23 07</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {{ now|default:2024 }} Stichting Vrienden van Domaine de Puylagorge. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
