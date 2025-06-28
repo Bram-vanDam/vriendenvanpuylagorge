@@ -245,6 +245,16 @@
         console.log('DEBUG: initScrollingComponent available:', typeof initScrollingComponent !== 'undefined');
         console.log('DEBUG: window.initScrollingComponent available:', typeof window.initScrollingComponent !== 'undefined');
         
+        // Test AJAX functionality
+        console.log('DEBUG: Testing basic AJAX functionality...');
+        $.get('/surveylinks', {category: 'stichting', _test: 'true'})
+            .done(function(data) {
+                console.log('DEBUG: Test AJAX request successful:', data);
+            })
+            .fail(function(err) {
+                console.error('DEBUG: Test AJAX request failed:', err);
+            });
+        
         let dictionary={"category":"stichting"};
         const params = { category: 'stichting'};
         console.log('DEBUG: Template parameters:', params);
@@ -255,7 +265,7 @@
             initScrollingComponent({
                 containerId: 'scrollContainer',
                 initialDict: params,
-                ajaxUrl: "surveylinks"
+                ajaxUrl: "/surveylinks"
             });
             console.log('DEBUG: initScrollingComponent called successfully');
         } catch (error) {
