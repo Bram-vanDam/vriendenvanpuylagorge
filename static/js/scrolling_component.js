@@ -1,4 +1,3 @@
-
     // Function to generate hyperlinks based on the output dictionary
     (function(global, $) {
         function generateLinks(container, dictionary) {
@@ -20,8 +19,9 @@
           // 1) render initial links (if you want)
           
           
-          // 2) fetch updated ones via AJAX
-          $.get(opts.ajaxUrl, opts.initialDict)
+          // 2) fetch updated ones via AJAX with cache-busting
+          const params = { ...opts.initialDict, _t: Date.now() };
+          $.get(opts.ajaxUrl, params)
            .done((data) => {
              const out = typeof data === 'string' ? JSON.parse(data) : data;
              generateLinks(container, out);
