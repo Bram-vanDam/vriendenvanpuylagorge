@@ -241,16 +241,27 @@
     <div class="scroll-container" id="scrollContainer"></div>
     <script>
         console.log('DEBUG: Template script starting...');
+        console.log('DEBUG: jQuery available:', typeof $ !== 'undefined');
+        console.log('DEBUG: initScrollingComponent available:', typeof initScrollingComponent !== 'undefined');
+        console.log('DEBUG: window.initScrollingComponent available:', typeof window.initScrollingComponent !== 'undefined');
+        
         let dictionary={"category":"stichting"};
         const params = { category: 'stichting'};
         console.log('DEBUG: Template parameters:', params);
         console.log('DEBUG: Dictionary object:', dictionary);
         console.log('DEBUG: About to call initScrollingComponent...');
-        initScrollingComponent({
-            containerId: 'scrollContainer',
-            initialDict: params,
-            ajaxUrl: "surveylinks"
-        });
+        
+        try {
+            initScrollingComponent({
+                containerId: 'scrollContainer',
+                initialDict: params,
+                ajaxUrl: "surveylinks"
+            });
+            console.log('DEBUG: initScrollingComponent called successfully');
+        } catch (error) {
+            console.error('DEBUG: Error calling initScrollingComponent:', error);
+        }
+        
         console.log('DEBUG: Template script completed');
     </script>
   </section>

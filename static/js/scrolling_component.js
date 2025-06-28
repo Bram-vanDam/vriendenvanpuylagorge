@@ -1,5 +1,9 @@
+console.log('DEBUG: scrolling_component.js file loaded successfully');
+
     // Function to generate hyperlinks based on the output dictionary
     (function(global, $) {
+        console.log('DEBUG: IIFE (Immediately Invoked Function Expression) starting');
+        
         function generateLinks(container, dictionary) {
           console.log('DEBUG: generateLinks called with dictionary:', dictionary);
           container.innerHTML = '';
@@ -59,6 +63,8 @@
       
         // expose globally
         global.initScrollingComponent = initScrollingComponent;
+        console.log('DEBUG: initScrollingComponent function exposed globally');
+        console.log('DEBUG: IIFE completed');
       
       })(window, jQuery);
 
