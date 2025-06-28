@@ -66,10 +66,7 @@
       Wij zetten ons in voor onvergetelijke animatieactiviteiten voor alle kinderen,
       met aandacht voor toegankelijkheid en inclusie op Camping Parc de la Brenne.
     </p>
-    <p>
-      Ontdek onze programma’s, leer onze vrijwilligers kennen en plan je volgende
-      bezoek vol plezier en samenzijn!
-    </p>
+    
   </section>
 
   <section class="programma section">
@@ -88,24 +85,7 @@
     <p>
       Meer weten of lid worden? Stuur een e-mail naar
       <a href="mailto:info@vriendenvanpuylagorge.nl">info@vriendenvanpuylagorge.nl</a>
-      of bel ons via +31 6 1234 5678.
+      of bel ons via +33 7 66 13 67 63.
     </p>
-    <h2>Scrolling Hyperlinks</h2>
-    <script src="{% static 'js/scrolling_component.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/scrolling_component_styling.css' %}">
-    <div class="scroll-container" id="scrollContainer"></div>
-    <script>
-       // Log the URL to check if it's correct
-       
-        let dictionary={"category":"vrijwilligers","year":"2025"};
-        const params = { category: 'vrijwilligers', year: '2025' };
-        initScrollingComponent({
-            containerId: 'scrollContainer',
-            initialDict: params,
-            ajaxUrl: "surveylinks"
-        });
-    </script>
-    <!-- Call the custom tag and pass the dictionary directly -->
-  
   </section>
 {% endblock %}
