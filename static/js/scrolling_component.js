@@ -1,11 +1,6 @@
-console.log('DEBUG: scrolling_component.js file loaded successfully');
-
     // Function to generate hyperlinks based on the output dictionary
     (function(global, $) {
-        console.log('DEBUG: IIFE (Immediately Invoked Function Expression) starting');
-        
         function generateLinks(container, dictionary) {
-          console.log('DEBUG: generateLinks called with dictionary:', dictionary);
           container.innerHTML = '';
           for (let name in dictionary) {
             if (dictionary.hasOwnProperty(name)) {
@@ -14,57 +9,28 @@ console.log('DEBUG: scrolling_component.js file loaded successfully');
               link.textContent = name;
               link.target = "_blank";
               container.appendChild(link);
-              console.log('DEBUG: Created link:', name, '->', dictionary[name]);
             }
           }
-          console.log('DEBUG: Total links generated:', container.children.length);
         }
       
         function initScrollingComponent(opts) {
-          console.log('DEBUG: initScrollingComponent called with options:', opts);
-          
           // opts.containerId, opts.initialDict (JS object), opts.ajaxUrl
           const container = document.getElementById(opts.containerId);
-          console.log('DEBUG: Found container:', container);
-          
           // 1) render initial links (if you want)
           
           
           // 2) fetch updated ones via AJAX with cache-busting
           const params = { ...opts.initialDict, _t: Date.now() };
-          console.log('DEBUG: Making AJAX request to:', opts.ajaxUrl);
-          console.log('DEBUG: Request parameters:', params);
-          console.log('DEBUG: Request URL will be:', opts.ajaxUrl + '?' + new URLSearchParams(params).toString());
-          
-          const startTime = Date.now();
           $.get(opts.ajaxUrl, params)
            .done((data) => {
-             const endTime = Date.now();
-             console.log('DEBUG: AJAX request completed successfully in', endTime - startTime, 'ms');
-             console.log('DEBUG: Raw response data:', data);
-             console.log('DEBUG: Response data type:', typeof data);
-             
              const out = typeof data === 'string' ? JSON.parse(data) : data;
-             console.log('DEBUG: Parsed response data:', out);
-             console.log('DEBUG: Number of items in response:', Object.keys(out).length);
-             
              generateLinks(container, out);
            })
-           .fail((err) => {
-             console.error('DEBUG: AJAX request failed:', err);
-             console.error('DEBUG: Error status:', err.status);
-             console.error('DEBUG: Error statusText:', err.statusText);
-             console.error('DEBUG: Error responseText:', err.responseText);
-           })
-           .always(() => {
-             console.log('DEBUG: AJAX request lifecycle completed');
-           });
+           .fail((err) => console.error('Error fetching links:', err));
         }
       
         // expose globally
         global.initScrollingComponent = initScrollingComponent;
-        console.log('DEBUG: initScrollingComponent function exposed globally');
-        console.log('DEBUG: IIFE completed');
       
       })(window, jQuery);
 

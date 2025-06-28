@@ -240,39 +240,13 @@
     <link rel="stylesheet" href="{% static 'css/scrolling_component_styling.css' %}">
     <div class="scroll-container" id="scrollContainer"></div>
     <script>
-        console.log('DEBUG: Template script starting...');
-        console.log('DEBUG: jQuery available:', typeof $ !== 'undefined');
-        console.log('DEBUG: initScrollingComponent available:', typeof initScrollingComponent !== 'undefined');
-        console.log('DEBUG: window.initScrollingComponent available:', typeof window.initScrollingComponent !== 'undefined');
-        
-        // Test AJAX functionality
-        console.log('DEBUG: Testing basic AJAX functionality...');
-        $.get('/surveylinks', {category: 'stichting', _test: 'true'})
-            .done(function(data) {
-                console.log('DEBUG: Test AJAX request successful:', data);
-            })
-            .fail(function(err) {
-                console.error('DEBUG: Test AJAX request failed:', err);
-            });
-        
         let dictionary={"category":"stichting"};
         const params = { category: 'stichting'};
-        console.log('DEBUG: Template parameters:', params);
-        console.log('DEBUG: Dictionary object:', dictionary);
-        console.log('DEBUG: About to call initScrollingComponent...');
-        
-        try {
-            initScrollingComponent({
-                containerId: 'scrollContainer',
-                initialDict: params,
-                ajaxUrl: "/surveylinks"
-            });
-            console.log('DEBUG: initScrollingComponent called successfully');
-        } catch (error) {
-            console.error('DEBUG: Error calling initScrollingComponent:', error);
-        }
-        
-        console.log('DEBUG: Template script completed');
+        initScrollingComponent({
+            containerId: 'scrollContainer',
+            initialDict: params,
+            ajaxUrl: "/surveylinks"
+        });
     </script>
   </section>
 {% endblock %}
