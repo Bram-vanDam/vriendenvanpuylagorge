@@ -240,13 +240,18 @@
     <link rel="stylesheet" href="{% static 'css/scrolling_component_styling.css' %}">
     <div class="scroll-container" id="scrollContainer"></div>
     <script>
+        console.log('DEBUG: Template script starting...');
         let dictionary={"category":"stichting"};
         const params = { category: 'stichting'};
+        console.log('DEBUG: Template parameters:', params);
+        console.log('DEBUG: Dictionary object:', dictionary);
+        console.log('DEBUG: About to call initScrollingComponent...');
         initScrollingComponent({
             containerId: 'scrollContainer',
             initialDict: params,
             ajaxUrl: "surveylinks"
         });
+        console.log('DEBUG: Template script completed');
     </script>
   </section>
 {% endblock %}
