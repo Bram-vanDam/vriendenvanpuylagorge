@@ -142,11 +142,27 @@
       Wil jij deze zomer het verschil maken voor gezinnen en kinderen? Sluit je aan bij Stichting Vrienden van Puylagorge en beleef een onvergetelijk avontuur!
     </p>
     <p>
-      <a href="mailto:info@vriendenvanpuylagorge.nl">Stuur ons een e-mail</a> of kijk op <a href="https://campingparcdelabrenne.com/">de campingwebsite</a> voor meer informatie.
+      <a href="mailto:adminstratie@campingparcdelabrenne.eu">Stuur ons een e-mail</a> of kijk op <a href="https://campingparcdelabrenne.com/">de campingwebsite</a> voor meer informatie.
     </p>
     <p>
       Samen maken we het verschil. Tot snel in de Brenne!
     </p>
     <img src="{% static 'images/logo.png' %}" alt="Logo Vrienden van Puylagorge" style="max-width: 120px; margin-bottom: 1em; display: block; margin-left: auto; margin-right: auto;" loading="lazy">
+  </section>
+
+  <section class="section">
+    <h2>Nuttige Links</h2>
+    <script src="{% static 'js/scrolling_component.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/scrolling_component_styling.css' %}">
+    <div class="scroll-container" id="scrollContainer"></div>
+    <script>
+        let dictionary={"category":"vrijwilligers"};
+        const params = { category: 'vrijwilligers'};
+        initScrollingComponent({
+            containerId: 'scrollContainer',
+            initialDict: params,
+            ajaxUrl: "/surveylinks"
+        });
+    </script>
   </section>
 {% endblock %}

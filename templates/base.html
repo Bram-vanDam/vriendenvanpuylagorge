@@ -420,6 +420,19 @@
     .footer-col dd {
       margin-bottom: 0.5em;
     }
+    .certification-logos {
+      align-items: center;
+      margin-top: 0.8rem;
+    }
+    .cert-logo {
+      max-width: 90px;
+    }
+    .anbi-logo {
+      max-width: 80px;
+    }
+    .cooster-logo {
+      max-width: 85px;
+    }
   }
   @media (max-width: 600px) {
     .site-footer .footer-content {
@@ -433,6 +446,48 @@
       font-size: 0.96em;
       padding: 0;
     }
+    .certification-logos {
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .cert-logo {
+      max-width: 75px;
+    }
+    .anbi-logo {
+      max-width: 65px;
+    }
+    .cooster-logo {
+      max-width: 70px;
+    }
+  }
+
+  /* Certification logos styling */
+  .certification-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+  }
+  
+  .cert-logo {
+    max-width: 120px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+  }
+  
+  .cert-logo:hover {
+    opacity: 0.8;
+  }
+  
+  .anbi-logo {
+    max-width: 100px;
+  }
+  
+  .cooster-logo {
+    max-width: 110px;
   }
 
   </style>
@@ -496,7 +551,7 @@
             <dt>Statutaire naam</dt>
             <dd class="breakable">Stichting Vrienden van Domaine de Puylagorge</dd>
             <dt>RSIN</dt>
-            <dd>850676709</dd>
+            <dd>822872250</dd>
             <dt>KvK‑nummer</dt>
             <dd>50676709</dd>
             <dt>AGB‑code</dt>
@@ -509,13 +564,28 @@
           <div class="footer-section-title">Contact</div>
           <dl>
             <dt>Correspondentieadres</dt>
-            <dd>Burgemeester van Hulstlaan 22, 5384 LS Heesch, Nederland</dd>
+            <dd>Burgemeester van Hulstlaan 22, 5384 LS Heesch, Nederland</dd>
             <dt>E‑mail algemeen</dt>
             <dd><a href="mailto:administratie@vriendenvanpuylagorge.eu">administratie@vriendenvanpuylagorge.eu</a></dd>
             <dt>E‑mail bestuur</dt>
             <dd><a href="mailto:secretariaat@vriendenvanpuylagorge.eu">secretariaat@vriendenvanpuylagorge.eu</a></dd>
             <dt>Telefoon camping</dt>
-            <dd>+33 9 60 44 23 07</dd>
+            <dd>+33 9 60 44 23 07</dd>
+          </dl>
+        </div>
+        <div class="footer-col">
+          <div class="footer-section-title">Certificeringen & Partners</div>
+          <dl>
+            <dt>ANBI-status</dt>
+            <dd>Algemeen Nut Beogende Instelling</dd>
+            <dt>Accountant</dt>
+            <dd>Cooster Accountants & Adviseurs</dd>
+            <dd>
+              <div class="certification-logos">
+                <img src="{% static 'images/ANBI LOGO.png' %}" alt="ANBI Logo" class="cert-logo anbi-logo">
+                <img src="{% static 'images/cooster.png' %}" alt="Cooster Accountants Logo" class="cert-logo cooster-logo">
+              </div>
+            </dd>
           </dl>
         </div>
       </div>
